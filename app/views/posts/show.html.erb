@@ -6,8 +6,13 @@
       <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
       submitted <%= time_ago_in_words(@post.created_at) %> ago by 
       <%= @post.user.name %>
-    </small>    
-    <p><%= markdown @post.body %></p>
+    </small>
+    <div class="thumbnail">
+      <%= image_tag(@post.image.thumb.url, class: 'img-responsive')  if @post.image? %>
+      <div class="well">
+        <p><%= markdown @post.body %></p>
+    </div>    
+    </div>
   </div>
   <div class="span4">
     <% if can? :edit, @post %>
