@@ -17,7 +17,7 @@ rand(4..10).times do
   u.skip_confirmation!
   u.save
 
-  rand(5..12).times do
+  rand(10..100).times do
   	topic = topics.first
     p = u.posts.create(
       title: Faker::Lorem.words(rand(1..10)).join(" "), 

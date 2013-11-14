@@ -37,7 +37,7 @@ class PostsController < ApplicationController
     authorize! :update, @post, message: "You need to own the post to edit it."
   	if @post.update_attributes(params[:post])
   		flash[:notice] = "Post was updated."
-  		redirect_to @post
+  		redirect_to topics_path
   	else
   		flash[:error] = "There was an error saving the post. Please try again."
   		render :edit
