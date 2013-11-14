@@ -40,4 +40,9 @@ class TopicsController < ApplicationController
 			render :edit		 	
 	  end
 	end  
+	def destroy
+		@topic = Topic.find(params[:id])
+		@topic.destroy
+		redirect_to topics_path
+	end
 end

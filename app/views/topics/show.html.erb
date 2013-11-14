@@ -2,6 +2,7 @@
 
 <% if can? :update, @topic %>
   <%= link_to "Edit Topic", edit_topic_path, class: 'btn btn-primary btn-mini' %>
+  <%= link_to 'Destroy', topic_path, method: :delete, class: 'btn btn-primary btn-mini' %>
 <% end %>
 
 <div class="row">
