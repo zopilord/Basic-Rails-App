@@ -1,4 +1,4 @@
-<%= form_for [topic, post], html: { class: 'form-horizontal' } do |f| %>
+<%= form_for [topic, post], html: { multipart: true, class: 'form-horizontal' } do |f| %>
   <% if post.errors.any? %>
     <div class="alert alert-block">
       <h4>There are <%= pluralize(post.errors.count, "error") %>.</h4>
@@ -26,7 +26,7 @@
     <%= image_tag(post.image.thumb.url) if post.image? %>
       <%= f.label :image, class: 'control-label' %>
     <div class="controls">
-      <%= f.file_field :avatar %>
+      <%= f.file_field :image %>
     </div>
   </div>
   <div class="control-group">

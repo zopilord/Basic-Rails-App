@@ -127,6 +127,7 @@ GEM
       json (~> 1.4)
     redcarpet (3.0.0)
     ref (1.0.4)
+    rmagick (2.13.2)
     ruby-hmac (0.4.0)
     sass (3.2.12)
     sass-rails (3.2.6)
@@ -178,6 +179,7 @@ DEPENDENCIES
   rails (= 3.2.13)
   rails_12factor
   redcarpet
+  rmagick
   sass-rails (~> 3.2.3)
   sqlite3
   therubyracer
