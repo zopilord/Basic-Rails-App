@@ -1,0 +1,7 @@
+	<div class="well">
+	 	<p><%= comment.body %></p>
+		<% if can? :destroy, comment %>
+			 <%= link_to "Delete", [@topic, @post, @comments], method: :delete %>
+		<% end %>
+	</div>
+<% end %>			

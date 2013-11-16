@@ -1,0 +1,7 @@
+<div class="well">
+	<%= image_tag (comment.user.avatar.small)  unless comment.user.nil? %>
+	<p><%= comment.body %></p>
+	<% if can? :destroy, comment %>
+     <%= link_to "Delete", [@topic, @post, comment], method: :delete %>
+  <% end %>
+</div>
