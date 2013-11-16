@@ -22,6 +22,7 @@ rand(4..10).times do
     p = u.posts.create(
       title: Faker::Lorem.words(rand(1..10)).join(" "), 
       body: Faker::Lorem.paragraphs(rand(1..4)).join("\n"))
+    p.topic = topic
     p.update_attribute(:created_at, Time.now - rand(600..31536000))
     topics.rotate!
     rand(3..7).times do

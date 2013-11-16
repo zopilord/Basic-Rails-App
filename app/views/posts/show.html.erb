@@ -1,4 +1,6 @@
-<h1><%= markdown @post.title %></h1>
+<div class="well">
+  <h1><%= markdown @post.title %></h1>
+</div>
 
 <div class="row">
   <div class="span8">
@@ -9,10 +11,12 @@
     </small>
     <div class="thumbnail">
       <%= image_tag(@post.image.thumb.url, class: 'img-responsive')  if @post.image? %>
-      <div class="well">
         <p><%= markdown @post.body %></p>
-    </div>    
     </div>
+    <div>
+      <%= render partial: "show", locals: {comments: @comments} %>
+    </div>
+    <%= render partial: 'comments', locals: {topic: @topic, post: @post, comment: @comment} %>
   </div>
   <div class="span4">
     <% if can? :edit, @post %>
