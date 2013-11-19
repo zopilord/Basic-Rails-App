@@ -10,6 +10,9 @@
     <p class="lead"><%= @topic.description %></p>
     <% @posts.each do |post| %>
       <div class="media">
+          <div class="vote-arrows pull-left">
+            <%= render partial: 'votes/voter', locals: {topic: @topic, post: post} %>
+          </div>
         <div class="media-body">
           <h4 class="media-heading">
             <%= link_to post.title, [@topic, post] %>
