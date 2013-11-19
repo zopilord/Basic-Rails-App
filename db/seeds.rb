@@ -17,7 +17,7 @@ rand(4..10).times do
   u.skip_confirmation!
   u.save
 
-  rand(10..100).times do
+  rand(10..20).times do
   	topic = topics.first
     p = u.posts.create(
       title: Faker::Lorem.words(rand(1..10)).join(" "), 
@@ -27,7 +27,7 @@ rand(4..10).times do
     p.update_rank
     topics.rotate!
     rand(3..7).times do
-      p.comments.create(
+      u.comments.create(
         body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"))
     end
   end
