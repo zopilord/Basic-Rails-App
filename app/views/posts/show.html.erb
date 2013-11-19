@@ -1,5 +1,10 @@
 <div class="well">
-  <h1><%= markdown @post.title %></h1>
+  <div class="row">
+    <div class="vote-arrows pull-left">
+      <%= render partial: 'votes/voter', locals: { topic: @topic, post: @post } %>
+    </div>
+    <h1><%= markdown @post.title %></h1>
+  </div>
 </div>
 
 <div class="row">
@@ -25,5 +30,12 @@
     <% if can? :destroy, @post %>
       <%= link_to "Delete Post", [@topic, @post], method: :delete, class: 'btn btn-large btn-block btn-danger', confirm: 'Are you sure you want to delete this post?' %>
     <% end %>  
+    <div>
+      <h3><%= pluralize(@post.points, 'point') %></h3>
+      <small>
+        <%= pluralize(@post.up_votes, 'up vote') %>, 
+        <%= pluralize(@post.down_votes, 'down vote') %>
+      </small>
+    </div>
   </div>
 </div>

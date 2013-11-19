@@ -7,4 +7,5 @@ development:
 	AWS_BUCKET:
 production:
 	AWS_BUCKET:
-		
+	FACEBOOK_ID:
+	FACEBOOK_SECRET:
