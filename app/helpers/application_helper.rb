@@ -4,7 +4,6 @@ module ApplicationHelper
 			content_tag :div, capture(&block), class: 'control-group error'
 		else
 			content_tag :div, capture(&block), class: 'control-group'
-			
 		end
 	end	
 
@@ -23,5 +22,11 @@ module ApplicationHelper
 	  extensions = {fenced_code_blocks: true, underline: true}
 	  redcarpet = Redcarpet::Markdown.new(renderer, extensions)
 	  (redcarpet.render text).html_safe
+	end
+
+	def comment_url_helper(comment)
+		post = comment.post
+		topic = post.topic
+		[topic, post, comment]
 	end
 end
