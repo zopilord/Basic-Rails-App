@@ -19,7 +19,7 @@
         <p><%= markdown @post.body %></p>
     </div>
     <div>
-      <%= render @comments %>
+      <%= render partial: 'comments/comment', collection: @comments %>
     </div>
     <%= render partial: 'comments/form', locals: {topic: @topic, post: @post, comment: @comment} %>
   </div>

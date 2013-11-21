@@ -17,7 +17,6 @@ class AvatarUploader < CarrierWave::Uploader::Base
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
-
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
@@ -42,6 +41,9 @@ class AvatarUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [30, 30]
   end
 
+  version :profile do
+    process :resize_to_fill => [45,45]
+  end  
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list

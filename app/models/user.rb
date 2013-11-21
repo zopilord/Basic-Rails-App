@@ -1,14 +1,12 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   validates_uniqueness_of :email
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable,
          :omniauthable, :omniauth_providers => [:facebook]
 
-  # Setup accessible (or protected) attributes for your model
-    attr_accessible :email, :password, :password_confirmation,
+  attr_accessible :email, :password, :password_confirmation,
                   :remember_me, :name, :avatar, :provider, :uid, :email_favorites
+  
   has_many :posts
   has_many :comments
   has_many :votes, dependent: :destroy 
@@ -31,6 +29,17 @@ class User < ActiveRecord::Base
         user.save
       end
     user
+  end
+
+  def self.top_rated
+    self.select('users.*').
+      select('COUNT(DISTINCT comments.id) AS comments_count').
+      select('COUNT(DISTINCT posts.id) AS posts_count').
+      select('COUNT(DISTINCT comments.id) + COUNT(DISTINCT posts.id) AS rank').
+      joins(:posts).
+      joins(:comments).
+      group('users.id').
+      order('rank DESC')
   end
 
   ROLES = %w[member moderator admin]
