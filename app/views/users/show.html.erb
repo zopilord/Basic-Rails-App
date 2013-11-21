@@ -2,13 +2,15 @@
   <div class="span12">
     <div class="media">
       <% if @user.avatar? %>
-        <%= image_tag @user.avatar.url, class: 'pull-left' %>
+        <%= image_tag @user.avatar.url, class: 'pull-left img-circle' %>
       <% end %>
       <div class="media-body">
         <h2 class="media-heading"><%= @user.name %></h2>
         <small>
-          <%= pluralize(@user.posts.count, 'post') %>,
-          <%= pluralize(@user.comments.count, 'comment') %>
+          <b>
+            Posts <span class="badge"><%= @user.posts.count %></span>,
+            Comments <span class="badge"><%= @user.comments.count %></span>
+          </b>
         </small>
       </div>
     </div>

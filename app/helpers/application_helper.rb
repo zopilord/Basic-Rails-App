@@ -29,4 +29,8 @@ module ApplicationHelper
 		topic = post.topic
 		[topic, post, comment]
 	end
+
+	def original_url
+	  base_url + original_fullpath
+	end
 end

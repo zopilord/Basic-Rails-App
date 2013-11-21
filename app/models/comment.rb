@@ -3,6 +3,7 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   attr_accessible :body, :post
   after_create :send_favorite_emails
+  validates :user, presence: true
   private
     def send_favorite_emails
       self.post.favorites.each do |favorite|
