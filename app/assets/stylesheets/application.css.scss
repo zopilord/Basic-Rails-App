@@ -1,0 +1,58 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ */
+@import "bootstrap-custom";
+@import "bootstrap";
+
+.user-info {
+  margin-top: 9px;
+}
+
+.nav {
+  margin-top: 5px;
+}
+
+.btn {
+  margin: 5px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+   border-radius: 20px;
+}
+
+.img-responsive {
+  text-align: center;
+}
+
+.vote-arrows{
+  width: 40px;
+  text-align: center;
+}
+
+.favorite{
+  margin-top: 20px;
+}
+
+.voted {
+  opacity: 0.5;
+}
+
+a {
+  color: #47A94B;
+}
+
+.well{
+  border: 1px solid #47A94B;
+}
+
+.badge{
+  background-color: #47A94B;
+}
